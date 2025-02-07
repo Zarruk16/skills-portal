@@ -11,7 +11,8 @@ module.exports = {
         14: '14px',
       },
       backgroundColor: {
-        'main-bg': '#FAFBFB',
+        'main-bg': '#F8F8F8',
+        'card-bg': '#EEF4FE',
         'main-dark-bg': '#20232A',
         'secondary-dark-bg': '#33373E',
         'light-gray': '#F7F7F7',
