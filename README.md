@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Build and Deploy a React Admin Dashboard App With Theming, Tables, Charts, Calendar, Kanban and More
 ![Shoppy](https://i.ibb.co/W6g39w3/image.png)
 
@@ -14,3 +15,6 @@ If you want to get a finished, highly customizable Material UI version of a simi
 =======
 # skills-portal
 >>>>>>> c9aec217da03659c4ef4e69720ba730b5227dd0f
+=======
+
+>>>>>>> 0a07b344e6243fa7826be64becbe73a88e93e8cf
