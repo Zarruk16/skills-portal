@@ -1,17 +1,14 @@
 import React from 'react';
-import { AiOutlineCalendar, AiOutlineShoppingCart, AiOutlineAreaChart, AiOutlineBarChart, AiOutlineStock } from 'react-icons/ai';
-import { FiShoppingBag, FiEdit, FiPieChart, FiBarChart, FiCreditCard, FiStar, FiShoppingCart } from 'react-icons/fi';
-import { BsKanban, BsBarChart, BsBoxSeam, BsCurrencyDollar, BsShield, BsChatLeft } from 'react-icons/bs';
-import {  RiLogoutBoxLine } from 'react-icons/ri';
-
-import { BiColorFill } from 'react-icons/bi';
+import { AiOutlineShoppingCart } from 'react-icons/ai';
+import { FiShoppingBag, FiPieChart, FiBarChart, FiCreditCard, FiStar, FiShoppingCart } from 'react-icons/fi';
+import { BsBoxSeam, BsCurrencyDollar, BsShield, BsChatLeft } from 'react-icons/bs';
+import { RiLogoutBoxLine, RiContactsLine } from 'react-icons/ri';
 import { IoMdContacts } from 'react-icons/io';
-import { RiContactsLine, RiStockLine } from 'react-icons/ri';
 import { MdOutlineSupervisorAccount } from 'react-icons/md';
 import { HiOutlineRefresh } from 'react-icons/hi';
 import { TiTick } from 'react-icons/ti';
-import { GiLouvrePyramid } from 'react-icons/gi';
 import { GrLocation } from 'react-icons/gr';
+
 import avatar from './avatar.jpg';
 import avatar2 from './avatar2.jpg';
 import avatar3 from './avatar3.png';
@@ -23,7 +20,6 @@ import product4 from './product4.jpg';
 import product5 from './product5.jpg';
 import product6 from './product6.jpg';
 import product7 from './product7.jpg';
-import product8 from './product8.jpg';
 
 export const gridOrderImage = (props) => (
   <div>
@@ -375,15 +371,15 @@ export const FinancialPrimaryYAxis = {
 
 export const LinePrimaryXAxis = {
   valueType: 'DateTime',
-  labelFormat: 'MMM',  // Display months (Jan, Feb, Mar...)
-  intervalType: 'Months',  // Ensure all months appear
+  labelFormat: 'MMM', // Display months (Jan, Feb, Mar...)
+  intervalType: 'Months', // Ensure all months appear
   majorGridLines: { width: 0 },
-  edgeLabelPlacement: 'Shift'
+  edgeLabelPlacement: 'Shift',
 };
 
 export const LinePrimaryYAxis = {
   labelFormat: '{value}',
-  rangePadding: 'None'
+  rangePadding: 'None',
 };
 
 export const customersGrid = [
@@ -500,11 +496,11 @@ export const links = [
 export const bottomLinks = [
   {
     name: 'help center',
-    icon: <BsBarChart />,
+    icon: <FiBarChart />,
   },
   {
     name: 'contact us',
-    icon: <AiOutlineStock />,
+    icon: <GrLocation />,
   },
   {
     name: 'logout',
@@ -2992,16 +2988,16 @@ export const scheduleData = [
 
 export const lineChartData = [
   [
-    { x: new Date(2024, 0, 1), y: 21 },  // Jan
-    { x: new Date(2024, 1, 1), y: 24 },  // Feb
-    { x: new Date(2024, 2, 1), y: 36 },  // Mar
-    { x: new Date(2024, 3, 1), y: 38 },  // Apr
-    { x: new Date(2024, 4, 1), y: 54 },  // May
-    { x: new Date(2024, 5, 1), y: 57 },  // Jun
-    { x: new Date(2024, 6, 1), y: 70 },  // Jul
-    { x: new Date(2024, 7, 1), y: 65 },  // Aug
-    { x: new Date(2024, 8, 1), y: 55 },  // Sep
-    { x: new Date(2024, 9, 1), y: 50 },  // Oct
+    { x: new Date(2024, 0, 1), y: 21 }, // Jan
+    { x: new Date(2024, 1, 1), y: 24 }, // Feb
+    { x: new Date(2024, 2, 1), y: 36 }, // Mar
+    { x: new Date(2024, 3, 1), y: 38 }, // Apr
+    { x: new Date(2024, 4, 1), y: 54 }, // May
+    { x: new Date(2024, 5, 1), y: 57 }, // Jun
+    { x: new Date(2024, 6, 1), y: 70 }, // Jul
+    { x: new Date(2024, 7, 1), y: 65 }, // Aug
+    { x: new Date(2024, 8, 1), y: 55 }, // Sep
+    { x: new Date(2024, 9, 1), y: 50 }, // Oct
     { x: new Date(2024, 10, 1), y: 48 }, // Nov
     { x: new Date(2024, 11, 1), y: 40 }, // Dec
   ],
@@ -3057,7 +3053,7 @@ export const SparklineAreaData = [
 ];
 
 export const lineCustomSeries = [
-  { 
+  {
     dataSource: lineChartData[0],
     xName: 'x',
     yName: 'y',
@@ -3065,9 +3061,9 @@ export const lineCustomSeries = [
     width: 4, // Thicker line
     color: '#008000', // Green
     marker: { visible: false }, // Hide dots
-    type: 'Spline' // Smooth line
+    type: 'Spline', // Smooth line
   },
-  { 
+  {
     dataSource: lineChartData[1],
     xName: 'x',
     yName: 'y',
@@ -3075,9 +3071,9 @@ export const lineCustomSeries = [
     width: 4,
     color: '#FFA500', // Orange
     marker: { visible: false },
-    type: 'Spline'
+    type: 'Spline',
   },
-  { 
+  {
     dataSource: lineChartData[2],
     xName: 'x',
     yName: 'y',
@@ -3085,10 +3081,9 @@ export const lineCustomSeries = [
     width: 4,
     color: '#FF0000', // Red
     marker: { visible: false },
-    type: 'Spline'
-  }
+    type: 'Spline',
+  },
 ];
-
 
 export const pieChartData = [
   { x: 'Labour', y: 18, text: '18%' },
