@@ -7,8 +7,7 @@ import { links, bottomLinks } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
 
 const Sidebar = () => {
-  const { currentColor, activeMenu, setActiveMenu, screenSize } =
-    useStateContext();
+  const { currentColor, activeMenu, setActiveMenu, screenSize } = useStateContext();
   const location = useLocation();
   const [activeBottomLink, setActiveBottomLink] = useState(null);
 
@@ -73,14 +72,11 @@ const Sidebar = () => {
                         to={`/${link.name}`}
                         key={link.name}
                         onClick={handleTopLinkClick}
-                        style={{
-                          backgroundColor: isActive ? currentColor : '',
-                        }}
+                        style={{ backgroundColor: isActive ? currentColor : '' }}
                         className={isActive ? activeLink : normalLink}
                       >
                         {React.cloneElement(link.icon, {
-                          color:
-                            activeBottomLink === link.name ? 'white' : '#007BFF',
+                          color: activeBottomLink === link.name ? 'white' : '#007BFF',
                         })}
                         <span className='capitalize'>{link.name}</span>
                       </NavLink>
