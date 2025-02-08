@@ -39,13 +39,12 @@ const Navbar = () => {
     screenSize,
   } = useStateContext();
   const [searchTerm, setSearchTerm] = useState('');
+  const [showSearch, setShowSearch] = useState(false); // State to toggle search bar
 
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);
-
     window.addEventListener('resize', handleResize);
     handleResize();
-
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
@@ -54,6 +53,17 @@ const Navbar = () => {
   }, [screenSize]);
 
   const handleActiveMenu = () => setActiveMenu(!activeMenu);
+
+  // Handle clicking outside search bar to close it
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (showSearch && event.target.id !== 'search-input' && event.target.id !== 'search-icon') {
+        setShowSearch(false);
+      }
+    };
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [showSearch]);
 
   return (
     <div className='flex justify-between p-2 md:ml-6 md:mr-6 relative'>
@@ -67,16 +77,32 @@ const Navbar = () => {
           icon={<AiOutlineMenu />}
         />
 
-        {/* Search Bar (5px margin-left) */}
+        {/* Search Toggle on Small Screens */}
         <div className='relative flex items-center ml-[5px]'>
-          <AiOutlineSearch className='absolute left-3 text-gray-400 text-xl' />
-          <input
-            type='text'
-            placeholder='Search...'
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className='w-400 pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 dark:bg-gray-700 dark:text-white'
-          />
+          {screenSize > 600 || showSearch ? (
+            // Show Input Field when `showSearch` is true or screen is large
+            <div className='relative'>
+              <input
+                id='search-input'
+                type='text'
+                placeholder='Search...'
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className='w-400 pl-4 pr-10 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 dark:bg-gray-700 dark:text-white'
+                autoFocus
+              />
+              <AiOutlineSearch
+                className='absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-xl cursor-pointer'
+              />
+            </div>
+          ) : (
+            // Show Search Icon when `showSearch` is false on small screens
+            <AiOutlineSearch
+              id='search-icon'
+              className='text-gray-400 text-xl cursor-pointer'
+              onClick={() => setShowSearch(true)}
+            />
+          )}
         </div>
       </div>
 
