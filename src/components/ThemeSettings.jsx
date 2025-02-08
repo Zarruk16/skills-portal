@@ -6,10 +6,10 @@ const ThemeSettings = () => {
   const { setColor, setMode, currentMode, currentColor, setThemeSettings } = useStateContext();
 
   return (
-    <div className="bg-half-transparent w-screen fixed nav-item top-0 right-0">
-      <div className="float-right h-screen dark:text-gray-200 bg-white dark:bg-[#484B52] w-400">
-        <div className="flex justify-between items-center p-4 ml-4">
-          <p className="font-semibold text-lg">Settings</p>
+    <div className='bg-half-transparent w-screen fixed nav-item top-0 right-0'>
+      <div className='float-right h-screen dark:text-gray-200 bg-white dark:bg-[#484B52] w-400'>
+        <div className='flex justify-between items-center p-4 ml-4'>
+          <p className='font-semibold text-lg'>Settings</p>
           <button
             type='button'
             onClick={() => setThemeSettings(false)}
@@ -21,10 +21,10 @@ const ThemeSettings = () => {
         </div>
 
         {/* Theme Mode Options */}
-        <div className="flex-col border-t-1 border-color p-4 ml-4">
-          <p className="font-semibold text-xl">Theme Option</p>
+        <div className='flex-col border-t-1 border-color p-4 ml-4'>
+          <p className='font-semibold text-xl'>Theme Option</p>
 
-          <div className="mt-4">
+          <div className='mt-4'>
             <input
               type='radio'
               id='light'
@@ -34,11 +34,11 @@ const ThemeSettings = () => {
               onChange={setMode}
               checked={currentMode === 'Light'}
             />
-            <label htmlFor="light" className="ml-2 text-md cursor-pointer">
+            <label htmlFor='light' className='ml-2 text-md cursor-pointer'>
               Light
             </label>
           </div>
-          <div className="mt-2">
+          <div className='mt-2'>
             <input
               type='radio'
               id='dark'
@@ -48,7 +48,7 @@ const ThemeSettings = () => {
               className='cursor-pointer'
               checked={currentMode === 'Dark'}
             />
-            <label htmlFor="dark" className="ml-2 text-md cursor-pointer">
+            <label htmlFor='dark' className='ml-2 text-md cursor-pointer'>
               Dark
             </label>
           </div>

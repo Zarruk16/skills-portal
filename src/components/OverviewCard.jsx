@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; // Changed to single quotes
+import React, { useState } from 'react';
 
 // Function to determine progress circle color
 const getProgressColor = (percentage) => {
@@ -15,13 +15,14 @@ function OverviewCard({ title, totalApplications, totalAmount, percentage }) {
   const isCentered = percentage === undefined;
 
   return (
-    <div className={`bg-card-bg p-8 w-full h-full dark:border dark:border-gray-900 dark:text-gray-200 dark:bg-secondary-dark-bg rounded-lg transform transition-all hover:shadow-xl hover:-translate-y-1 
-      ${isCentered ? 'flex flex-col items-center justify-center text-center' : 'flex items-center justify-between'}
-    `}>
+    <div
+      className={`bg-card-bg p-8 w-full h-full dark:border dark:border-gray-900 dark:text-gray-200 dark:bg-secondary-dark-bg rounded-lg transform transition-all hover:shadow-xl hover:-translate-y-1 
+      ${isCentered ? 'flex flex-col items-center justify-center text-center' : 'flex items-center justify-between'}`}
+    >
       {/* Title & Data */}
-      <div className="flex flex-col gap-4">
-        <h2 className="text-gray-700 dark:text-gray-200 text-base font-semibold">{title}</h2>
-        <div className="text-gray-900 dark:text-gray-200 text-3xl font-bold">
+      <div className='flex flex-col gap-4'>
+        <h2 className='text-gray-700 dark:text-gray-200 text-base font-semibold'>{title}</h2>
+        <div className='text-gray-900 dark:text-gray-200 text-3xl font-bold'>
           {totalAmount ? `${totalAmount.toLocaleString()}` : totalApplications}
         </div>
       </div>
@@ -33,15 +34,8 @@ function OverviewCard({ title, totalApplications, totalAmount, percentage }) {
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          <svg className="w-full h-full transform -rotate-90">
-            <circle
-              cx='50%'
-              cy='50%'
-              r='30'
-              strokeWidth='10'
-              fill='none'
-              className='stroke-gray-300'
-            />
+          <svg className='w-full h-full transform -rotate-90'>
+            <circle cx='50%' cy='50%' r='30' strokeWidth='10' fill='none' className='stroke-gray-300' />
             <circle
               cx='50%'
               cy='50%'
@@ -55,13 +49,13 @@ function OverviewCard({ title, totalApplications, totalAmount, percentage }) {
             />
           </svg>
           {/* Percentage in center */}
-          <div className="absolute inset-0 flex items-center justify-center text-lg font-semibold text-gray-800">
+          <div className='absolute inset-0 flex items-center justify-center text-lg font-semibold text-gray-800'>
             {percentage}%
           </div>
 
           {/* Tooltip on Hover */}
           {isHovered && (
-            <div className="absolute top-[-40px] left-1/2 transform -translate-x-1/2 px-3 py-1 bg-black text-white text-xs rounded-md shadow-lg">
+            <div className='absolute top-[-40px] left-1/2 transform -translate-x-1/2 px-3 py-1 bg-black text-white text-xs rounded-md shadow-lg'>
               {percentage}% Completed
             </div>
           )}

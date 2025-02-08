@@ -19,11 +19,11 @@ const ListOfCenters = () => {
     .sort((a, b) => (sortOrder === 'asc' ? a.applicants - b.applicants : b.applicants - a.applicants));
 
   return (
-    <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl shadow-md">
-      <div className="text-xl font-semibold mb-2">List of Centers</div>
+    <div className='bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl shadow-md'>
+      <div className='text-xl font-semibold mb-2'>List of Centers</div>
 
-      <div className="flex justify-between mb-4">
-        <div className="relative">
+      <div className='flex justify-between mb-4'>
+        <div className='relative'>
           <input
             type='text'
             placeholder='Search centers...'
@@ -31,33 +31,33 @@ const ListOfCenters = () => {
             onChange={(e) => setSearch(e.target.value)}
             className='border rounded-lg bg-gray-100 dark:text-gray-200 dark:border-none dark:bg-main-dark-bg py-2 px-4 pl-10 w-[400px] focus:outline-none'
           />
-          <FaSearch className="absolute left-3 top-3 text-gray-400" />
+          <FaSearch className='absolute left-3 top-3 text-gray-400' />
         </div>
         <button
           type='button'
           onClick={() => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')}
           className='bg-gray-100 dark:text-gray-200 dark:bg-main-dark-bg px-4 py-2 rounded-lg flex items-center'
         >
-          <FaFilter className="mr-2" /> filter
+          <FaFilter className='mr-2' /> Filter
         </button>
       </div>
 
-      <table className="w-full border-collapse">
+      <table className='w-full border-collapse'>
         <thead>
-          <tr className="border-b">
-            <th className="text-left py-2 uppercase">ID</th>
-            <th className="text-left py-2 uppercase">Center Name</th>
-            <th className="text-left py-2 uppercase">Total no of Applicants</th>
+          <tr className='border-b'>
+            <th className='text-left py-2 uppercase'>ID</th>
+            <th className='text-left py-2 uppercase'>Center Name</th>
+            <th className='text-left py-2 uppercase'>Total no of Applicants</th>
           </tr>
         </thead>
         <tbody>
           {filteredCenters.map((center) => (
-            <tr key={center.id} className="border-b">
-              <td className="py-4">{center.id}</td>
-              <td className="py-4">{center.name}</td>
-              <td className="py-4 font-semibold flex items-center">
+            <tr key={center.id} className='border-b'>
+              <td className='py-4'>{center.id}</td>
+              <td className='py-4'>{center.name}</td>
+              <td className='py-4 font-semibold flex items-center'>
                 {center.applicants}
-                <span className="ml-2 bg-green-300 text-green-900 text-[11px] font-semibold px-2 py-1 rounded-full">
+                <span className='ml-2 bg-green-300 text-green-900 text-[11px] font-semibold px-2 py-1 rounded-full'>
                   {center.newApplicants} new
                 </span>
               </td>
