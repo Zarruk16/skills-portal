@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import OverviewCard from './OverviewCard';
-import { Header } from '../components';
+import  Header  from './Header';
 
 function App() {
   const [overviews, setOverviews] = useState([

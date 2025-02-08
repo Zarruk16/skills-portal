@@ -2,7 +2,8 @@ import React from 'react';
 import { DropDownListComponent } from '@syncfusion/ej2-react-dropdowns';
 
 import { LineChart } from '../components';
-import { WelcomeBanner } from '../components/WelcomeBanner'; // Named export
+import Banner from '../components/WelcomeBanner';
+
 
 import Overview from '../components/Overview';
 // import Graduates from '../components/Graduates';
@@ -58,7 +59,7 @@ const Ecommerce = () => {
   return (
     <div className='mt-[60px] md:mt-30 lg:mt-5 max-w-7xl mx-auto p-4 space-y-8'>
       {/* Main Components */}
-      <WelcomeBanner />
+      <Banner />
       <Overview />
       {/* <Graduates /> */}
 
