@@ -34,9 +34,7 @@ const ThemeSettings = () => {
               onChange={setMode}
               checked={currentMode === 'Light'}
             />
-            <label htmlFor='light' className='ml-2 text-md cursor-pointer'>
-              Light
-            </label>
+            <label htmlFor='light' onChange={setMode} className='ml-2 text-md cursor-pointer'>Light</label>
           </div>
           <div className='mt-2'>
             <input
@@ -48,9 +46,7 @@ const ThemeSettings = () => {
               className='cursor-pointer'
               checked={currentMode === 'Dark'}
             />
-            <label htmlFor='dark' className='ml-2 text-md cursor-pointer'>
-              Dark
-            </label>
+            <label htmlFor='dark' className='ml-2 text-md onChange={setMode} cursor-pointer'>Dark</label>
           </div>
         </div>
       </div>
