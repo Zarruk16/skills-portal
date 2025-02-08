@@ -40,9 +40,9 @@ const ListOfCenters = () => {
 
   return (
     <div className='bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl shadow-md'>
-      <div className='text-xl font-semibold mb-2'>List of Centers</div>
+      <div className='text-lg md:text-xl font-semibold mb-2'>List of Centers</div>
 
-      <div className='flex justify-between mb-4'>
+      <div className='flex flex-col sm:flex-row justify-between mb-4 gap-2 sm:gap-0'>
         {/* Search Input (Toggle for small screens) */}
         <div className='relative flex items-center'>
           {screenWidth > 600 || showSearch ? (
@@ -53,7 +53,7 @@ const ListOfCenters = () => {
                 placeholder='Search centers...'
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className='border rounded-lg bg-gray-100 dark:text-gray-200 dark:border-none dark:bg-main-dark-bg py-2 px-4 pl-4 pr-10 w-[250px] md:w-[400px] focus:outline-none'
+                className='border text-sm md:text-base rounded-lg bg-gray-100 dark:text-gray-200 dark:border-none dark:bg-main-dark-bg py-2 px-4 pl-4 pr-10 w-[250px] md:w-[400px] focus:outline-none'
                 autoFocus
               />
               <FaSearch className='absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400' />
@@ -71,14 +71,14 @@ const ListOfCenters = () => {
         <button
           type='button'
           onClick={() => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')}
-          className='bg-gray-100 dark:text-gray-200 dark:bg-main-dark-bg px-4 py-2 rounded-lg flex items-center'
+          className='bg-gray-100 text-sm md:text-base dark:text-gray-200 dark:bg-main-dark-bg px-4 py-2 rounded-lg flex items-center'
         >
-          <FaFilter className='mr-2' /> {sortOrder === 'asc' ? 'Sort Descending' : 'Sort Ascending'}
+          <FaFilter className='mr-2' />
         </button>
       </div>
 
       {/* Centers Table */}
-      <table className='w-full border-collapse'>
+      <table className='w-full border-collapse text-sm md:text-base'>
         <thead>
           <tr className='border-b'>
             <th className='text-left py-2 uppercase'>ID</th>
@@ -93,7 +93,7 @@ const ListOfCenters = () => {
               <td className='py-4'>{center.name}</td>
               <td className='py-4 font-semibold flex items-center'>
                 {center.applicants}
-                <span className='ml-2 bg-green-300 text-green-900 text-[11px] font-semibold px-2 py-1 rounded-full'>
+                <span className='ml-2 bg-green-300 text-green-900 text-[9px] md:text-[11px] font-semibold px-2 py-1 rounded-full'>
                   {center.newApplicants} new
                 </span>
               </td>
