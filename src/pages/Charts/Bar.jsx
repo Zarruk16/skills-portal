@@ -13,7 +13,7 @@ const Bar = () => {
       <ChartsHeader category="Bar" title="Olympic Medal Counts - RIO" />
       <div className=" w-full">
         <ChartComponent
-          id="charts"
+          id='charts'
           primaryXAxis={barPrimaryXAxis}
           primaryYAxis={barPrimaryYAxis}
           chartArea={{ border: { width: 0 } }}

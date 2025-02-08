@@ -76,5 +76,7 @@ module.exports = {
         ],
       },
     ],
+    // 🔴 FIX: Allow single quotes in JSX attributes
+    'jsx-quotes': ['error', 'prefer-single'],
   },
 };

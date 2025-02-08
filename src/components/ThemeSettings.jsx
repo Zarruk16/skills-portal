@@ -11,10 +11,10 @@ const ThemeSettings = () => {
         <div className="flex justify-between items-center p-4 ml-4">
           <p className="font-semibold text-lg">Settings</p>
           <button
-            type="button"
+            type='button'
             onClick={() => setThemeSettings(false)}
             style={{ color: 'rgb(153, 171, 180)', borderRadius: '50%' }}
-            className="text-2xl p-3 hover:drop-shadow-xl hover:bg-light-gray"
+            className='text-2xl p-3 hover:drop-shadow-xl hover:bg-light-gray'
           >
             <MdOutlineCancel />
           </button>
@@ -26,11 +26,11 @@ const ThemeSettings = () => {
 
           <div className="mt-4">
             <input
-              type="radio"
-              id="light"
-              name="theme"
-              value="Light"
-              className="cursor-pointer"
+              type='radio'
+              id='light'
+              name='theme'
+              value='Light'
+              className='cursor-pointer'
               onChange={setMode}
               checked={currentMode === 'Light'}
             />
@@ -40,12 +40,12 @@ const ThemeSettings = () => {
           </div>
           <div className="mt-2">
             <input
-              type="radio"
-              id="dark"
-              name="theme"
-              value="Dark"
+              type='radio'
+              id='dark'
+              name='theme'
+              value='Dark'
               onChange={setMode}
-              className="cursor-pointer"
+              className='cursor-pointer'
               checked={currentMode === 'Dark'}
             />
             <label htmlFor="dark" className="ml-2 text-md cursor-pointer">

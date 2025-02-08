@@ -14,7 +14,7 @@ const Employees = () => {
       <Header category="Page" title="Employees" />
       <GridComponent
         dataSource={employeesData}
-        width="auto"
+        width='auto'
         allowPaging
         allowSorting
         pageSettings={{ pageCount: 5 }}

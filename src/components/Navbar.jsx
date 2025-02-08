@@ -11,15 +11,15 @@ import { useStateContext } from "../contexts/ContextProvider";
 const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
   <TooltipComponent content={title} position="BottomCenter">
     <button
-      type="button"
+      type='button'
       onClick={() => customFunc()}
       style={{ color }}
-      className="relative text-xl rounded-full p-3 hover:bg-light-gray"
+      className='relative text-xl rounded-full p-3 hover:bg-light-gray'
     >
       {dotColor && (
         <span
           style={{ background: dotColor }}
-          className="absolute inline-flex rounded-full h-2 w-2 right-2 top-2"
+          className='absolute inline-flex rounded-full h-2 w-2 right-2 top-2'
         />
       )}
       {icon}
@@ -64,7 +64,7 @@ const Navbar = () => {
       <div className="flex items-center">
         {/* Menu Button */}
         <NavButton
-          title="Menu"
+          title='Menu'
           customFunc={handleActiveMenu}
           color={currentColor}
           icon={<AiOutlineMenu />}
@@ -74,11 +74,11 @@ const Navbar = () => {
         <div className="relative flex items-center ml-[5px]">
           <AiOutlineSearch className="absolute left-3 text-gray-400 text-xl" />
           <input
-            type="text"
-            placeholder="Search..."
+            type='text'
+            placeholder='Search...'
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-400 pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 dark:bg-gray-700 dark:text-white"
+            className='w-400 pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 dark:bg-gray-700 dark:text-white'
           />
         </div>
       </div>
@@ -86,8 +86,8 @@ const Navbar = () => {
       {/* Right Side: Notification + Profile */}
       <div className="flex">
         <NavButton
-          title="Notification"
-          dotColor="rgb(254, 201, 15)"
+          title='Notification'
+          dotColor='rgb(254, 201, 15)'
           customFunc={() => handleClick("notification")}
           color={currentColor}
           icon={<RiNotification3Line />}
@@ -95,13 +95,13 @@ const Navbar = () => {
 
         <TooltipComponent content="Profile" position="BottomCenter">
           <div
-            className="flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg"
+            className='flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg'
             onClick={() => handleClick("userProfile")}
           >
             <img
-              className="rounded-full w-8 h-8"
+              className='rounded-full w-8 h-8'
               src={avatar}
-              alt="user-profile"
+              alt='user-profile'
             />
             <p>
               <span className="text-gray-400 text-14">Hi,</span>{" "}

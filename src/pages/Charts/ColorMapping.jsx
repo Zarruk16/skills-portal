@@ -13,7 +13,7 @@ const ColorMapping = () => {
       <ChartsHeader category="Color Mappping" title="USA CLIMATE - WEATHER BY MONTH" />
       <div className="w-full">
         <ChartComponent
-          id="charts"
+          id='charts'
           primaryXAxis={ColorMappingPrimaryXAxis}
           primaryYAxis={ColorMappingPrimaryYAxis}
           chartArea={{ border: { width: 0 } }}
@@ -25,10 +25,10 @@ const ColorMapping = () => {
           <SeriesCollectionDirective>
             <SeriesDirective
               dataSource={colorMappingData[0]}
-              name="USA"
-              xName="x"
-              yName="y"
-              type="Column"
+              name='USA'
+              xName='x'
+              yName='y'
+              type='Column'
               cornerRadius={{
                 topLeft: 10,
                 topRight: 10,

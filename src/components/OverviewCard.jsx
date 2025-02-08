@@ -29,29 +29,29 @@ function OverviewCard({ title, totalApplications, totalAmount, percentage }) {
       {/* Right Side - Circular Progress (Only if percentage exists) */}
       {!isCentered && percentage !== undefined && (
         <div
-          className="relative w-20 h-20"
+          className='relative w-20 h-20'
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
           <svg className="w-full h-full transform -rotate-90">
             <circle
-              cx="50%"
-              cy="50%"
-              r="30"
-              strokeWidth="10"
-              fill="none"
-              className="stroke-gray-300"
+              cx='50%'
+              cy='50%'
+              r='30'
+              strokeWidth='10'
+              fill='none'
+              className='stroke-gray-300'
             />
             <circle
-              cx="50%"
-              cy="50%"
-              r="30"
-              strokeWidth="10"
-              fill="none"
-              strokeDasharray="188"
+              cx='50%'
+              cy='50%'
+              r='30'
+              strokeWidth='10'
+              fill='none'
+              strokeDasharray='188'
               strokeDashoffset={(188 * (100 - percentage)) / 100}
               className={`transition-all duration-700 ease-out ${progressColor}`}
-              strokeLinecap="round"
+              strokeLinecap='round'
             />
           </svg>
           {/* Percentage in center */}

@@ -25,18 +25,18 @@ const ListOfCenters = () => {
       <div className="flex justify-between mb-4">
         <div className="relative">
           <input
-            type="text"
-            placeholder="Search centers..."
+            type='text'
+            placeholder='Search centers...'
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="border rounded-lg bg-gray-100 dark:text-gray-200 dark:border-none dark:bg-main-dark-bg py-2 px-4 pl-10 w-[400px] focus:outline-none"
+            className='border rounded-lg bg-gray-100 dark:text-gray-200 dark:border-none dark:bg-main-dark-bg py-2 px-4 pl-10 w-[400px] focus:outline-none'
           />
           <FaSearch className="absolute left-3 top-3 text-gray-400" />
         </div>
         <button
-          type="button"
+          type='button'
           onClick={() => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')}
-          className="bg-gray-100 dark:text-gray-200 dark:bg-main-dark-bg px-4 py-2 rounded-lg flex items-center"
+          className='bg-gray-100 dark:text-gray-200 dark:bg-main-dark-bg px-4 py-2 rounded-lg flex items-center'
         >
           <FaFilter className="mr-2" /> filter
         </button>

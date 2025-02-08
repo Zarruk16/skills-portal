@@ -19,10 +19,10 @@ const Chat = () => {
         </div>
         <Button
           icon={<MdOutlineCancel />}
-          color="rgb(153, 171, 180)"
-          bgHoverColor="light-gray"
-          size="2xl"
-          borderRadius="50%"
+          color='rgb(153, 171, 180)'
+          bgHoverColor='light-gray'
+          size='2xl'
+          borderRadius='50%'
         />
       </div>
       <div className="mt-5 ">
@@ -30,13 +30,13 @@ const Chat = () => {
           <div key={index} className="flex items-center gap-5 border-b-1 border-color p-3 leading-8 cursor-pointer">
             <div className="relative">
               <img
-                className="rounded-full h-10 w-10"
+                className='rounded-full h-10 w-10'
                 src={item.image}
                 alt={item.message}
               />
               <span
                 style={{ background: item.dotColor }}
-                className="absolute inline-flex rounded-full h-2 w-2 right-0 -top-1"
+                className='absolute inline-flex rounded-full h-2 w-2 right-0 -top-1'
               />
             </div>
             <div>
@@ -48,11 +48,11 @@ const Chat = () => {
         ))}
         <div className="mt-5">
           <Button
-            color="white"
+            color='white'
             bgColor={currentColor}
-            text="See all messages"
-            borderRadius="10px"
-            width="full"
+            text='See all messages'
+            borderRadius='10px'
+            width='full'
           />
         </div>
       </div>

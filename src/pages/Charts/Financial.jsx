@@ -24,7 +24,7 @@ const Financial = () => {
       <ChartsHeader category="Financial" title="AAPLE Historical" />
       <div className="w-full">
         <ChartComponent
-          id="charts"
+          id='charts'
           primaryXAxis={FinancialPrimaryXAxis}
           primaryYAxis={FinancialPrimaryYAxis}
           chartArea={{ border: { width: 0 } }}
@@ -36,12 +36,12 @@ const Financial = () => {
           <SeriesCollectionDirective>
             <SeriesDirective
               dataSource={returnValue}
-              xName="x"
-              yName="low"
-              name="Apple Inc"
-              type="Hilo"
-              low="low"
-              high="high"
+              xName='x'
+              yName='low'
+              name='Apple Inc'
+              type='Hilo'
+              low='low'
+              high='high'
             />
           </SeriesCollectionDirective>
         </ChartComponent>

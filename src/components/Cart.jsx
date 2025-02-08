@@ -16,10 +16,10 @@ const Cart = () => {
           <p className="font-semibold text-lg">Shopping Cart</p>
           <Button
             icon={<MdOutlineCancel />}
-            color="rgb(153, 171, 180)"
-            bgHoverColor="light-gray"
-            size="2xl"
-            borderRadius="50%"
+            color='rgb(153, 171, 180)'
+            bgHoverColor='light-gray'
+            size='2xl'
+            borderRadius='50%'
           />
         </div>
         {cartData?.map((item, index) => (
@@ -55,11 +55,11 @@ const Cart = () => {
         </div>
         <div className="mt-5">
           <Button
-            color="white"
+            color='white'
             bgColor={currentColor}
-            text="Place Order"
-            borderRadius="10px"
-            width="full"
+            text='Place Order'
+            borderRadius='10px'
+            width='full'
           />
         </div>
       </div>
