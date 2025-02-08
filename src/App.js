@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { FiSettings } from 'react-icons/fi';
-import { TooltipComponent } from '@syncfusion/ej2-react-popups';
+// import { FiSettings } from 'react-icons/fi';
+// import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
 import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
 import { Dashboard, Centers } from './pages';
@@ -25,7 +25,7 @@ const App = () => {
     <div className={currentMode === 'Dark' ? 'dark' : ''}>
       <BrowserRouter>
         <div className='flex relative dark:bg-main-dark-bg'>
-          <div className='fixed right-4 bottom-4' style={{ zIndex: '1000' }}>
+          {/* <div className='fixed right-4 bottom-4' style={{ zIndex: '1000' }}>
             <TooltipComponent
               content='Settings'
               position='Top'
@@ -40,7 +40,7 @@ const App = () => {
               </button>
 
             </TooltipComponent>
-          </div>
+          </div> */}
           {activeMenu ? (
             <div className='w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white '>
               <Sidebar />
