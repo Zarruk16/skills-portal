@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaSearch, FaFilter } from 'react-icons/fa';
 
 const ListOfCenters = () => {
   const [search, setSearch] = useState('');
   const [sortOrder, setSortOrder] = useState('asc');
+  const [showSearch, setShowSearch] = useState(false);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
   const centersData = [
     { id: '#12594A', name: 'Co-Creation Hub, Lagos', applicants: 346, newApplicants: 33 },
@@ -18,30 +20,64 @@ const ListOfCenters = () => {
     .filter((center) => center.name.toLowerCase().includes(search.toLowerCase()))
     .sort((a, b) => (sortOrder === 'asc' ? a.applicants - b.applicants : b.applicants - a.applicants));
 
+  // Handle window resize
+  useEffect(() => {
+    const handleResize = () => setScreenWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Close search bar when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (showSearch && event.target.id !== 'search-input' && event.target.id !== 'search-icon') {
+        setShowSearch(false);
+      }
+    };
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [showSearch]);
+
   return (
     <div className='bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl shadow-md'>
       <div className='text-xl font-semibold mb-2'>List of Centers</div>
 
       <div className='flex justify-between mb-4'>
-        <div className='relative'>
-          <input
-            type='text'
-            placeholder='Search centers...'
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className='border rounded-lg bg-gray-100 dark:text-gray-200 dark:border-none dark:bg-main-dark-bg py-2 px-4 pl-10 w-[400px] focus:outline-none'
-          />
-          <FaSearch className='absolute left-3 top-3 text-gray-400' />
+        {/* Search Input (Toggle for small screens) */}
+        <div className='relative flex items-center'>
+          {screenWidth > 600 || showSearch ? (
+            <div className='relative'>
+              <input
+                id='search-input'
+                type='text'
+                placeholder='Search centers...'
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                className='border rounded-lg bg-gray-100 dark:text-gray-200 dark:border-none dark:bg-main-dark-bg py-2 px-4 pl-4 pr-10 w-[250px] md:w-[400px] focus:outline-none'
+                autoFocus
+              />
+              <FaSearch className='absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400' />
+            </div>
+          ) : (
+            <FaSearch
+              id='search-icon'
+              className='text-gray-400 text-xl cursor-pointer'
+              onClick={() => setShowSearch(true)}
+            />
+          )}
         </div>
+
+        {/* Filter Button */}
         <button
           type='button'
           onClick={() => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')}
           className='bg-gray-100 dark:text-gray-200 dark:bg-main-dark-bg px-4 py-2 rounded-lg flex items-center'
         >
-          <FaFilter className='mr-2' /> Filter
+          <FaFilter className='mr-2' /> {sortOrder === 'asc' ? 'Sort Descending' : 'Sort Ascending'}
         </button>
       </div>
 
+      {/* Centers Table */}
       <table className='w-full border-collapse'>
         <thead>
           <tr className='border-b'>
