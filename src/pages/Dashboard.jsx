@@ -1,10 +1,7 @@
 import React from 'react';
 import { DropDownListComponent } from '@syncfusion/ej2-react-dropdowns';
-
 import { LineChart } from '../components';
 import Banner from '../components/WelcomeBanner';
-
-
 import Overview from '../components/Overview';
 // import Graduates from '../components/Graduates';
 import ListOfCenters from '../components/ListOfCenters';

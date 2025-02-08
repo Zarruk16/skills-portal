@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import OverviewCard from './OverviewCard';
-import  Header  from './Header';
+import Header from './Header';
 
 function App() {
-  const [overviews, setOverviews] = useState([
+  const [overviews] = useState([
     { title: 'TOTAL AMOUNT SENT TO APPLICANT', totalAmount: 10650000 },
     { title: 'TOTAL AMOUNT OF APPLICANT', totalApplications: 2860 },
     { title: 'TOTAL CENTERS', totalApplications: 105 },

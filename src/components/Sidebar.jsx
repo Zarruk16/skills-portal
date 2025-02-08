@@ -17,7 +17,6 @@ const Sidebar = () => {
       setActiveMenu(false);
     }
   };
-
   // Reset bottom links when a top link is clicked
   const handleTopLinkClick = () => {
     setActiveBottomLink(null);
@@ -25,9 +24,8 @@ const Sidebar = () => {
   };
 
   // CSS classes for active and normal links
-  const activeLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-white text-md m-2';
-  const normalLink =
-    'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2';
+  const activeLink='flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-white text-md m-2';
+  const normalLink='flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2';
 
   return (
     <div className='ml-3 h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10 flex flex-col justify-between'>
@@ -68,13 +66,9 @@ const Sidebar = () => {
                         style={({ isActive }) => ({
                           backgroundColor: isActive || (isFirstLink && location.pathname === '/') ? currentColor : '',
                         })}
-                        className={({ isActive }) =>
-                          isActive || (isFirstLink && location.pathname === '/') ? activeLink : normalLink
-                        }
-                      >
-                        {React.cloneElement(link.icon, {
-                          color: activeBottomLink === link.name ? 'white' : '#007BFF',
-                        })}
+                        className={({ isActive }) => isActive || (isFirstLink && location.pathname === '/') ? activeLink : normalLink }>
+                        {React.cloneElement(link.icon, { color: activeBottomLink === link.name ? 'white' : '#007BFF',})}
+
                         <span className='capitalize'>{link.name}</span>
                       </NavLink>
                     );
@@ -92,18 +86,14 @@ const Sidebar = () => {
                   key={link.name}
                   to={`/${link.name}`}
                   onClick={() => setActiveBottomLink(link.name)} // Track which bottom link was clicked
-                  className={({ isActive }) =>
-                    `flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md m-2 
+                  className={`flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md m-2 
                     ${link.name === 'logout' 
                       ? 'text-red-600 hover:text-red-700' // Red text for logout link
                       : activeBottomLink === link.name // Active background for selected link
                         ? 'text-white bg-blue-500 dark:bg-blue-600' // Active background
-                        : 'text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray'}`
-                  }
+                        : 'text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray'}`}
                 >
-                  {React.cloneElement(link.icon, {
-                    color: activeBottomLink === link.name ? 'white' : '#007BFF',
-                  })}
+                  {React.cloneElement(link.icon, { color: activeBottomLink === link.name ? 'white' : '#007BFF',})}
                   <span className='capitalize'>{link.name}</span>
                 </NavLink>
               ))}

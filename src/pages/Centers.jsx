@@ -5,9 +5,6 @@ import ListOfCenters from '../components/ListOfCenters';
 import Banner from '../components/WelcomeBanner';
 
 const Customers = () => {
-  const selectionsettings = { persistSelection: true };
-  const toolbarOptions = ['Delete'];
-  const editing = { allowDeleting: true, allowEditing: true };
 
   return (
     <div className='mt-[60px] md:mt-30 lg:mt-5 max-w-7xl mx-auto p-4 space-y-8'>
