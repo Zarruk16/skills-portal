@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { AiOutlineMenu, AiOutlineSearch } from 'react-icons/ai';
-import { RiNotification3Line } from 'react-icons/ri';
-import { MdKeyboardArrowDown } from 'react-icons/md';
-import { TooltipComponent } from '@syncfusion/ej2-react-popups';
+import React, { useEffect, useState } from "react";
+import { AiOutlineMenu, AiOutlineSearch } from "react-icons/ai";
+import { RiNotification3Line } from "react-icons/ri";
+import { MdKeyboardArrowDown } from "react-icons/md";
+import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 
-import avatar from '../data/avatar.jpg';
-import { Notification, UserProfile } from '.';
-import { useStateContext } from '../contexts/ContextProvider';
+import avatar from "../data/avatar.jpg";
+import { Notification, UserProfile } from ".";
+import { useStateContext } from "../contexts/ContextProvider";
 
 const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
   <TooltipComponent content={title} position="BottomCenter">
@@ -28,16 +28,24 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
 );
 
 const Navbar = () => {
-  const { currentColor, activeMenu, setActiveMenu, handleClick, isClicked, setScreenSize, screenSize } = useStateContext();
-  const [searchTerm, setSearchTerm] = useState('');
+  const {
+    currentColor,
+    activeMenu,
+    setActiveMenu,
+    handleClick,
+    isClicked,
+    setScreenSize,
+    screenSize,
+  } = useStateContext();
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
     handleResize();
 
-    return () => window.removeEventListener('resize', handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   useEffect(() => {
@@ -55,8 +63,13 @@ const Navbar = () => {
       {/* Left Side: Menu + Search */}
       <div className="flex items-center">
         {/* Menu Button */}
-        <NavButton title="Menu" customFunc={handleActiveMenu} color={currentColor} icon={<AiOutlineMenu />} />
-        
+        <NavButton
+          title="Menu"
+          customFunc={handleActiveMenu}
+          color={currentColor}
+          icon={<AiOutlineMenu />}
+        />
+
         {/* Search Bar (5px margin-left) */}
         <div className="relative flex items-center ml-[5px]">
           <AiOutlineSearch className="absolute left-3 text-gray-400 text-xl" />
@@ -72,17 +85,29 @@ const Navbar = () => {
 
       {/* Right Side: Notification + Profile */}
       <div className="flex">
-        <NavButton title="Notification" dotColor="rgb(254, 201, 15)" customFunc={() => handleClick('notification')} color={currentColor} icon={<RiNotification3Line />} />
+        <NavButton
+          title="Notification"
+          dotColor="rgb(254, 201, 15)"
+          customFunc={() => handleClick("notification")}
+          color={currentColor}
+          icon={<RiNotification3Line />}
+        />
 
         <TooltipComponent content="Profile" position="BottomCenter">
           <div
             className="flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg"
-            onClick={() => handleClick('userProfile')}
+            onClick={() => handleClick("userProfile")}
           >
-            <img className="rounded-full w-8 h-8" src={avatar} alt="user-profile" />
+            <img
+              className="rounded-full w-8 h-8"
+              src={avatar}
+              alt="user-profile"
+            />
             <p>
-              <span className="text-gray-400 text-14">Hi,</span>{' '}
-              <span className="text-gray-400 font-bold ml-1 text-14">Michael</span>
+              <span className="text-gray-400 text-14">Hi,</span>{" "}
+              <span className="text-gray-400 font-bold ml-1 text-14">
+                Admin
+              </span>
             </p>
             <MdKeyboardArrowDown className="text-gray-400 text-14" />
           </div>

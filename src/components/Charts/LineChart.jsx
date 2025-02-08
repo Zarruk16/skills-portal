@@ -1,7 +1,7 @@
 import React from 'react';
 import { 
   ChartComponent, SeriesCollectionDirective, SeriesDirective, Inject, 
-  SplineSeries, DateTime, Legend, Tooltip 
+  SplineSeries, DateTime, Legend, Tooltip, // <-- Added trailing comma
 } from '@syncfusion/ej2-react-charts';
 
 import { lineCustomSeries, LinePrimaryXAxis, LinePrimaryYAxis } from '../../data/dummy';
@@ -24,7 +24,16 @@ const LineChart = () => {
       <Inject services={[SplineSeries, DateTime, Legend, Tooltip]} />
       <SeriesCollectionDirective>
         {lineCustomSeries.map((item, index) => (
-          <SeriesDirective key={index} {...item} />
+          <SeriesDirective 
+            key={index} 
+            type={item.type}
+            dataSource={item.dataSource}
+            xName={item.xName}
+            yName={item.yName}
+            name={item.name}
+            width={item.width}
+            marker={item.marker}
+          />
         ))}
       </SeriesCollectionDirective>
     </ChartComponent>

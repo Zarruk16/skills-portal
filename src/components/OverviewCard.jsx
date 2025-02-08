@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'; // Changed to single quotes
 
 // Function to determine progress circle color
 const getProgressColor = (percentage) => {
-  if (percentage >= 75) return "stroke-green-500"; // Green for 75% - 100%
-  if (percentage >= 30) return "stroke-orange-500"; // Orange for 30% - 74%
-  return "stroke-red-500"; // Red for 0% - 29%
+  if (percentage >= 75) return 'stroke-green-500'; // Green for 75% - 100%
+  if (percentage >= 30) return 'stroke-orange-500'; // Orange for 30% - 74%
+  return 'stroke-red-500'; // Red for 0% - 29%
 };
 
 function OverviewCard({ title, totalApplications, totalAmount, percentage }) {
@@ -16,13 +16,13 @@ function OverviewCard({ title, totalApplications, totalAmount, percentage }) {
 
   return (
     <div className={`bg-card-bg p-8 w-full h-full dark:border dark:border-gray-900 dark:text-gray-200 dark:bg-secondary-dark-bg rounded-lg transform transition-all hover:shadow-xl hover:-translate-y-1 
-      ${isCentered ? "flex flex-col items-center justify-center text-center" : "flex items-center justify-between"}
+      ${isCentered ? 'flex flex-col items-center justify-center text-center' : 'flex items-center justify-between'}
     `}>
       {/* Title & Data */}
       <div className="flex flex-col gap-4">
         <h2 className="text-gray-700 dark:text-gray-200 text-base font-semibold">{title}</h2>
         <div className="text-gray-900 dark:text-gray-200 text-3xl font-bold">
-          {totalAmount ? `₦${totalAmount.toLocaleString()}` : totalApplications}
+          {totalAmount ? `${totalAmount.toLocaleString()}` : totalApplications}
         </div>
       </div>
 

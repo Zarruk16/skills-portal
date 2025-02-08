@@ -1,30 +1,27 @@
-import React, { useState } from "react";
-import { FaSearch, FaFilter } from "react-icons/fa";
+import React, { useState } from 'react';
+import { FaSearch, FaFilter } from 'react-icons/fa';
 
 const ListOfCenters = () => {
-  const [search, setSearch] = useState("");
-  const [sortOrder, setSortOrder] = useState("asc");
+  const [search, setSearch] = useState('');
+  const [sortOrder, setSortOrder] = useState('asc');
 
   const centersData = [
-    { id: "#12594", name: "Co-Creation Hub, Lagos", applicants: 346, newApplicants: 33 },
-    { id: "#12594", name: "IT Hub Central, Kano", applicants: 230, newApplicants: 78 },
-    { id: "#12594", name: "Colab Innovation Hub, Kaduna", applicants: 320, newApplicants: 105 },
-    { id: "#12594", name: "IDEA Hub, Abuja", applicants: 102, newApplicants: 32 },
-    { id: "#12594", name: "Spark Incubator, Port Harcourt", applicants: 204, newApplicants: 56 },
-    { id: "#12594", name: "Decagon, Lagos", applicants: 789, newApplicants: 112 },
+    { id: '#12594A', name: 'Co-Creation Hub, Lagos', applicants: 346, newApplicants: 33 },
+    { id: '#12594B', name: 'IT Hub Central, Kano', applicants: 230, newApplicants: 78 },
+    { id: '#12594C', name: 'Colab Innovation Hub, Kaduna', applicants: 320, newApplicants: 105 },
+    { id: '#12594D', name: 'IDEA Hub, Abuja', applicants: 102, newApplicants: 32 },
+    { id: '#12594E', name: 'Spark Incubator, Port Harcourt', applicants: 204, newApplicants: 56 },
+    { id: '#12594F', name: 'Decagon, Lagos', applicants: 789, newApplicants: 112 },
   ];
 
-  // Filter and sort centers based on search query
   const filteredCenters = centersData
     .filter((center) => center.name.toLowerCase().includes(search.toLowerCase()))
-    .sort((a, b) => (sortOrder === "asc" ? a.applicants - b.applicants : b.applicants - a.applicants));
+    .sort((a, b) => (sortOrder === 'asc' ? a.applicants - b.applicants : b.applicants - a.applicants));
 
   return (
     <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl shadow-md">
-      {/* Title */}
       <div className="text-xl font-semibold mb-2">List of Centers</div>
 
-      {/* Search & Filter */}
       <div className="flex justify-between mb-4">
         <div className="relative">
           <input
@@ -36,12 +33,15 @@ const ListOfCenters = () => {
           />
           <FaSearch className="absolute left-3 top-3 text-gray-400" />
         </div>
-        <button onClick={() => setSortOrder(sortOrder === "asc" ? "desc" : "asc")} className="bg-gray-100 dark:text-gray-200 dark:bg-main-dark-bg px-4 py-2 rounded-lg flex items-center">
+        <button
+          type="button"
+          onClick={() => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')}
+          className="bg-gray-100 dark:text-gray-200 dark:bg-main-dark-bg px-4 py-2 rounded-lg flex items-center"
+        >
           <FaFilter className="mr-2" /> filter
         </button>
       </div>
 
-      {/* Table */}
       <table className="w-full border-collapse">
         <thead>
           <tr className="border-b">

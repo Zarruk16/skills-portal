@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import OverviewCard from "./OverviewCard";
-import { Header } from '../components';
+import { Header } from "../components";
 
 function App() {
   const [overviews, setOverviews] = useState([
-    { title: "TOTAL AMOUNT SENT TO APPLICANT", totalAmount: 10650000 }, 
+    { title: "TOTAL AMOUNT SENT TO APPLICANT", totalAmount: 10650000 },
     { title: "TOTAL AMOUNT OF APPLICANT", totalApplications: 2860 },
     { title: "TOTAL CENTERS", totalApplications: 105 },
     { title: "VERIFIED APPLICATIONS", totalApplications: 2107, percentage: 78 },
@@ -22,8 +22,8 @@ function App() {
               <OverviewCard
                 title={overview.title}
                 totalApplications={overview.totalApplications}
-                totalAmount={index === 0 ? `${overview.totalAmount.toLocaleString()}` : undefined} // Format first card with ₦
-                percentage={index >= 3 ? overview.percentage : undefined} // Exclude percentage for first 3 cards
+                totalAmount={overview.totalAmount ? `₦${overview.totalAmount.toLocaleString()}` : undefined} // Format with ₦ if totalAmount exists
+                percentage={overview.percentage} // Pass percentage, it will be undefined if not present
               />
             </div>
           ))}
