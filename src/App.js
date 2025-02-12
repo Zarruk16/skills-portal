@@ -9,9 +9,9 @@ const App = () => {
   const { setCurrentColor, setCurrentMode, currentMode, activeMenu, themeSettings } = useStateContext();
 
   useEffect(() => {
-    setCurrentColor(localStorage.getItem('colorMode') || '#1A202C');
+    setCurrentColor(localStorage.getItem('colorMode') || '#007BFF');
     setCurrentMode(localStorage.getItem('themeMode') || 'Light');
-  }, [setCurrentColor, setCurrentMode]); // ✅ Fix missing dependencies
+  }, [setCurrentColor, setCurrentMode]);
 
   return (
     <div className={currentMode === 'Dark' ? 'dark' : ''}>
