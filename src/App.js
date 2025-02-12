@@ -1,48 +1,24 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-// import { FiSettings } from 'react-icons/fi';
-// import { TooltipComponent } from '@syncfusion/ej2-react-popups';
-
 import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
-import { Dashboard, Centers } from './pages';
+import { Dashboard, Centers, Applicants, Reports } from './pages';
 import './App.css';
-
 import { useStateContext } from './contexts/ContextProvider';
 
 const App = () => {
   const { setCurrentColor, setCurrentMode, currentMode, activeMenu, themeSettings } = useStateContext();
 
   useEffect(() => {
-    const currentThemeColor = localStorage.getItem('colorMode');
-    const currentThemeMode = localStorage.getItem('themeMode');
-    if (currentThemeColor && currentThemeMode) {
-      setCurrentColor(currentThemeColor);
-      setCurrentMode(currentThemeMode);
-    }
-  }, []);
+    setCurrentColor(localStorage.getItem('colorMode') || '#1A202C');
+    setCurrentMode(localStorage.getItem('themeMode') || 'Light');
+  }, [setCurrentColor, setCurrentMode]); // ✅ Fix missing dependencies
 
   return (
     <div className={currentMode === 'Dark' ? 'dark' : ''}>
       <BrowserRouter>
         <div className='flex relative dark:bg-main-dark-bg'>
-          {/* <div className='fixed right-4 bottom-4' style={{ zIndex: '1000' }}>
-            <TooltipComponent
-              content='Settings'
-              position='Top'
-            >
-              <button
-                type='button'
-                onClick={() => setThemeSettings(true)}
-                style={{ background: currentColor, borderRadius: '50%' }}
-                className='text-3xl text-white p-3 hover:drop-shadow-xl hover:bg-light-gray'
-              >
-                <FiSettings />
-              </button>
-
-            </TooltipComponent>
-          </div> */}
           {activeMenu ? (
-            <div className='w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white '>
+            <div className='w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white'>
               <Sidebar />
             </div>
           ) : (
@@ -50,29 +26,18 @@ const App = () => {
               <Sidebar />
             </div>
           )}
-          <div
-            className={
-              activeMenu
-                ? 'dark:bg-main-dark-bg  bg-main-bg min-h-screen md:ml-72 w-full  '
-                : 'bg-main-bg dark:bg-main-dark-bg  w-full min-h-screen flex-2 '
-            }
-          >
-            <div className='fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full '>
+          <div className={activeMenu ? 'dark:bg-main-dark-bg bg-main-bg min-h-screen md:ml-72 w-full' : 'bg-main-bg dark:bg-main-dark-bg w-full min-h-screen flex-2'}>
+            <div className='fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full'>
               <Navbar />
             </div>
             <div>
-              {themeSettings && (<ThemeSettings />)}
-
+              {themeSettings && <ThemeSettings />}
               <Routes>
-                {/* dashboard  */}
-                <Route path='/' element={(<Dashboard />)} />
-                <Route path='/dashboard' element={(<Dashboard />)} />
-
-                {/* pages  */}
-
-                {/* <Route path='/employees' element={<Employees />} /> */}
+                <Route path='/' element={<Dashboard />} />
+                <Route path='/dashboard' element={<Dashboard />} />
                 <Route path='/centers' element={<Centers />} />
-
+                <Route path='/applicants' element={<Applicants />} />
+                <Route path='/report' element={<Reports />} />
               </Routes>
             </div>
             <Footer />
