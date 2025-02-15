@@ -12,21 +12,61 @@ const ReportTable = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
 
   const applicantsData = [
-    { id: '#12594', name: 'Hamza Lawal', skill: 'Project Manager', amount: 'N150,000', date: '10/2/2024' },
-    { id: '#12595', name: 'Abuullahi Suleiman', skill: 'Product Design', amount: 'N150,000', date: '10/2/2024' },
-    { id: '#12596', name: 'James Agbo', skill: 'QA Tester', amount: 'N150,000', date: '10/2/2024' },
-    { id: '#12597', name: 'Umar Aminu', skill: 'Graphic Designer', amount: 'N150,000', date: '10/2/2024' },
-    { id: '#12598', name: 'Paul James', skill: 'IT Support', amount: 'N150,000', date: '10/2/2024' },
-    { id: '#12599', name: 'Faith Ada', skill: 'UX/UI Designer', amount: 'N', date: '10/2/2024' },
+    {
+      id: '#12594',
+      name: 'Hamza Lawal',
+      skill: 'Project Manager',
+      amount: 'N150,000',
+      date: '10/2/2024',
+    },
+    {
+      id: '#12595',
+      name: 'Abuullahi Suleiman',
+      skill: 'Product Design',
+      amount: 'N150,000',
+      date: '10/2/2024',
+    },
+    {
+      id: '#12596',
+      name: 'James Agbo',
+      skill: 'QA Tester',
+      amount: 'N150,000',
+      date: '10/2/2024',
+    },
+    {
+      id: '#12597',
+      name: 'Umar Aminu',
+      skill: 'Graphic Designer',
+      amount: 'N150,000',
+      date: '10/2/2024',
+    },
+    {
+      id: '#12598',
+      name: 'Paul James',
+      skill: 'IT Support',
+      amount: 'N150,000',
+      date: '10/2/2024',
+    },
+    {
+      id: '#12599',
+      name: 'Faith Ada',
+      skill: 'UX/UI Designer',
+      amount: 'N',
+      date: '10/2/2024',
+    },
   ];
 
   const filteredApplicants = applicantsData
     .filter(
       (applicant) =>
         (filter === 'all' || applicant.skill === filter) &&
-        applicant.name.toLowerCase().includes(search.toLowerCase())
+        applicant.name.toLowerCase().includes(search.toLowerCase()),
     )
-    .sort((a, b) => (sortOrder === 'asc' ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name)));
+    .sort((a, b) =>
+      sortOrder === 'asc'
+        ? a.name.localeCompare(b.name)
+        : b.name.localeCompare(a.name),
+    );
 
   useEffect(() => {
     const handleResize = () => setScreenWidth(window.innerWidth);
@@ -40,7 +80,9 @@ const ReportTable = () => {
 
   return (
     <div className='bg-white p-6 rounded-2xl shadow-md'>
-      <div className='text-lg md:text-xl font-semibold mb-4'>Applicant List Report</div>
+      <div className='text-lg md:text-xl font-semibold mb-4'>
+        Applicant List Report
+      </div>
 
       <div className='flex flex-col sm:flex-row justify-between items-center mb-4 gap-4'>
         <div className='relative flex items-center w-full sm:w-auto'>
@@ -66,7 +108,12 @@ const ReportTable = () => {
           )}
         </div>
         <div className='flex justify-end w-full sm:w-auto'>
-          <Filter onFilterChange={setFilter} onSortChange={setSortOrder} activeDropdown={activeDropdown} toggleDropdown={toggleDropdown} />
+          <Filter
+            onFilterChange={setFilter}
+            onSortChange={setSortOrder}
+            activeDropdown={activeDropdown}
+            toggleDropdown={toggleDropdown}
+          />
         </div>
       </div>
 

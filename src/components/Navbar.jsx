@@ -57,7 +57,11 @@ const Navbar = () => {
   // Handle clicking outside search bar to close it
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (showSearch && event.target.id !== 'search-input' && event.target.id !== 'search-icon') {
+      if (
+        showSearch &&
+        event.target.id !== 'search-input' &&
+        event.target.id !== 'search-icon'
+      ) {
         setShowSearch(false);
       }
     };
@@ -91,9 +95,7 @@ const Navbar = () => {
                 className='w-400 pl-4 pr-10 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 dark:bg-gray-700 dark:text-white'
                 autoFocus
               />
-              <AiOutlineSearch
-                className='absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-xl cursor-pointer'
-              />
+              <AiOutlineSearch className='absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-xl cursor-pointer' />
             </div>
           ) : (
             // Show Search Icon when `showSearch` is false on small screens
@@ -121,10 +123,16 @@ const Navbar = () => {
             className='flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg'
             onClick={() => handleClick('userProfile')}
           >
-            <img className='rounded-full w-8 h-8' src={avatar} alt='user-profile' />
+            <img
+              className='rounded-full w-8 h-8'
+              src={avatar}
+              alt='user-profile'
+            />
             <p>
               <span className='text-gray-400 text-14'>Hi,</span>{' '}
-              <span className='text-gray-400 font-bold ml-1 text-14'>Admin</span>
+              <span className='text-gray-400 font-bold ml-1 text-14'>
+                Admin
+              </span>
             </p>
             <MdKeyboardArrowDown className='text-gray-400 text-14' />
           </div>

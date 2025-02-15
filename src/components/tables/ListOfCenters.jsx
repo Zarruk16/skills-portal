@@ -10,20 +10,52 @@ const ListOfCenters = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
 
   const centersData = [
-    { id: '#12594A', name: 'Co-Creation Hub, Lagos', applicants: 346, newApplicants: 33 },
-    { id: '#12594B', name: 'IT Hub Central, Kano', applicants: 230, newApplicants: 78 },
-    { id: '#12594C', name: 'Colab Innovation Hub, Kaduna', applicants: 320, newApplicants: 105 },
-    { id: '#12594D', name: 'IDEA Hub, Abuja', applicants: 102, newApplicants: 32 },
-    { id: '#12594E', name: 'Spark Incubator, Port Harcourt', applicants: 204, newApplicants: 56 },
-    { id: '#12594F', name: 'Decagon, Lagos', applicants: 789, newApplicants: 112 },
+    {
+      id: '#12594A',
+      name: 'Co-Creation Hub, Lagos',
+      applicants: 346,
+      newApplicants: 33,
+    },
+    {
+      id: '#12594B',
+      name: 'IT Hub Central, Kano',
+      applicants: 230,
+      newApplicants: 78,
+    },
+    {
+      id: '#12594C',
+      name: 'Colab Innovation Hub, Kaduna',
+      applicants: 320,
+      newApplicants: 105,
+    },
+    {
+      id: '#12594D',
+      name: 'IDEA Hub, Abuja',
+      applicants: 102,
+      newApplicants: 32,
+    },
+    {
+      id: '#12594E',
+      name: 'Spark Incubator, Port Harcourt',
+      applicants: 204,
+      newApplicants: 56,
+    },
+    {
+      id: '#12594F',
+      name: 'Decagon, Lagos',
+      applicants: 789,
+      newApplicants: 112,
+    },
   ];
 
   const filteredCenters = centersData
     .filter((center) =>
-      center.name.toLowerCase().includes(search.toLowerCase())
+      center.name.toLowerCase().includes(search.toLowerCase()),
     )
     .sort((a, b) =>
-      sortOrder === 'asc' ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name)
+      sortOrder === 'asc'
+        ? a.name.localeCompare(b.name)
+        : b.name.localeCompare(a.name),
     );
 
   useEffect(() => {
@@ -38,7 +70,11 @@ const ListOfCenters = () => {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (showSearch && event.target.id !== 'search-input' && event.target.id !== 'search-icon') {
+      if (
+        showSearch &&
+        event.target.id !== 'search-input' &&
+        event.target.id !== 'search-icon'
+      ) {
         setShowSearch(false);
       }
     };
@@ -48,7 +84,9 @@ const ListOfCenters = () => {
 
   return (
     <div className='bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl shadow-md'>
-      <div className='text-lg md:text-xl font-semibold mb-4'>List of Centers</div>
+      <div className='text-lg md:text-xl font-semibold mb-4'>
+        List of Centers
+      </div>
 
       <div className='flex flex-col sm:flex-row justify-between mb-4 gap-2 sm:gap-0'>
         <div className='relative flex items-center w-full sm:w-auto'>

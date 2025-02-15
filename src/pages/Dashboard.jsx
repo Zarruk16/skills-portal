@@ -65,7 +65,9 @@ const Ecommerce = () => {
         {/* Line Chart - Takes 65% on large screens */}
         <div className='lg:col-span-8 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl'>
           <div className='flex justify-between items-center mb-6'>
-            <p className='text-xl font-semibold'>Application Received in 2024</p>
+            <p className='text-xl font-semibold'>
+              Application Received in 2024
+            </p>
             <DropDown currentMode={currentMode} />
           </div>
           <div className='w-full overflow-auto'>

@@ -46,7 +46,6 @@ function Verification() {
   return (
     <div className='overflow-hidden justify-center pl-20 bg-white max-md:pl-5'>
       <div className='flex gap-5 max-md:flex-col'>
-        
         {/* Left Panel */}
         <div className='flex flex-col w-[34%] max-md:w-full'>
           <div className='flex z-10 flex-col my-auto w-full max-md:mt-10'>
@@ -63,11 +62,16 @@ function Verification() {
                 alt='Verification icon'
               />
               <div className='flex flex-col mt-8 w-full'>
-                <h1 className='text-4xl font-medium text-slate-900'>Verification</h1>
+                <h1 className='text-4xl font-medium text-slate-900'>
+                  Verification
+                </h1>
                 <p className='mt-4 text-base text-zinc-600'>
                   Please enter your NIN & DOB for Verification
                 </p>
-                <form className='flex flex-col mt-12 w-full max-md:mt-10' onSubmit={handleSubmit}>
+                <form
+                  className='flex flex-col mt-12 w-full max-md:mt-10'
+                  onSubmit={handleSubmit}
+                >
                   <InputField
                     label='NIN Number'
                     type='text'
@@ -85,7 +89,10 @@ function Verification() {
                     onChange={(e) => setDob(e.target.value)}
                     error={errors.dob}
                   />
-                  <Button text={loading ? 'Processing...' : 'Proceed'} disabled={loading} />
+                  <Button
+                    text={loading ? 'Processing...' : 'Proceed'}
+                    disabled={loading}
+                  />
                 </form>
               </div>
             </div>
@@ -102,7 +109,10 @@ function Verification() {
             <div className='overflow-hidden px-20 pb-14 mt-40 max-w-full pt-[697px] w-[724px] max-md:px-5 max-md:pt-24 max-md:mt-10'>
               <div className='flex gap-5 max-md:flex-col'>
                 <div className='flex flex-col w-[70%]'>
-                  <a href='/' className='flex gap-2 items-center text-base font-semibold text-white'>
+                  <a
+                    href='/'
+                    className='flex gap-2 items-center text-base font-semibold text-white'
+                  >
                     <img
                       loading='lazy'
                       src='https://cdn.builder.io/api/v1/image/assets/TEMP/d22762fd8c8c14e434a819d488afac1ef1308e337b1c7c27935718b297bc31fa'
@@ -113,13 +123,17 @@ function Verification() {
                   </a>
                 </div>
                 <div className='flex flex-col ml-5 w-[30%]'>
-                  <a href='/login' className='text-base font-semibold text-white'>Sign In</a>
+                  <a
+                    href='/login'
+                    className='text-base font-semibold text-white'
+                  >
+                    Sign In
+                  </a>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
       </div>
     </div>
   );

@@ -15,14 +15,22 @@ function App() {
   return (
     <div>
       <div className='bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl max-w-7xl p-6 space-y-8'>
-        <Header className='text-xl font-semibold' category='' title='Overview' />
+        <Header
+          className='text-xl font-semibold'
+          category=''
+          title='Overview'
+        />
         <div className='grid grid-cols-1 mt-6 md:grid-cols-2 lg:grid-cols-3 gap-6'>
           {overviews.map((overview, index) => (
             <div key={index} className='flex flex-col items-center'>
               <OverviewCard
                 title={overview.title}
                 totalApplications={overview.totalApplications}
-                totalAmount={overview.totalAmount ? `₦${overview.totalAmount.toLocaleString()}` : undefined}
+                totalAmount={
+                  overview.totalAmount
+                    ? `₦${overview.totalAmount.toLocaleString()}`
+                    : undefined
+                }
                 percentage={overview.percentage}
               />
             </div>

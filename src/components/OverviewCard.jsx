@@ -9,7 +9,8 @@ const getProgressColor = (percentage) => {
 
 function OverviewCard({ title, totalApplications, totalAmount, percentage }) {
   const [isHovered, setIsHovered] = useState(false);
-  const progressColor = percentage !== undefined ? getProgressColor(percentage) : null;
+  const progressColor =
+    percentage !== undefined ? getProgressColor(percentage) : null;
 
   // Check if the card should be centered
   const isCentered = percentage === undefined;
@@ -21,7 +22,9 @@ function OverviewCard({ title, totalApplications, totalAmount, percentage }) {
     >
       {/* Title & Data */}
       <div className='flex flex-col gap-4'>
-        <h2 className='text-gray-700 dark:text-gray-200 text-base font-semibold'>{title}</h2>
+        <h2 className='text-gray-700 dark:text-gray-200 text-base font-semibold'>
+          {title}
+        </h2>
         <div className='text-gray-900 dark:text-gray-200 text-3xl font-bold'>
           {totalAmount ? `${totalAmount.toLocaleString()}` : totalApplications}
         </div>
@@ -35,7 +38,14 @@ function OverviewCard({ title, totalApplications, totalAmount, percentage }) {
           onMouseLeave={() => setIsHovered(false)}
         >
           <svg className='w-full h-full transform -rotate-90'>
-            <circle cx='50%' cy='50%' r='30' strokeWidth='10' fill='none' className='stroke-gray-300' />
+            <circle
+              cx='50%'
+              cy='50%'
+              r='30'
+              strokeWidth='10'
+              fill='none'
+              className='stroke-gray-300'
+            />
             <circle
               cx='50%'
               cy='50%'
