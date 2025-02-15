@@ -97,7 +97,7 @@ function Createpassword() {
                 <h1 className='text-4xl font-medium text-slate-900'>
                   Create Password
                 </h1>
-                <p className='mt-4 text-base text-zinc-600'></p>
+                <p className='mt-4 text-base text-zinc-600'>Make sure your password is secured with different string letters, numbers and symbols</p>
                 <form onSubmit={handleSubmit} className='flex flex-col mt-12'>
                   <div className='relative'>
                     <InputField

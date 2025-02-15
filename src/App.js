@@ -28,6 +28,9 @@ const App = () => {
     <div className={currentMode === 'Dark' ? 'dark' : ''}>
       <BrowserRouter>
         <Routes>
+          {/* ✅ Redirect root URL to Verification Page */}
+          <Route path='/' element={<Navigate to='/verification' />} />
+
           {/* Public Routes */}
           <Route path='/verification' element={<NinVerification />} />
           <Route path='/registration' element={<Registration />} />
@@ -36,10 +39,7 @@ const App = () => {
           <Route path='/login' element={<Login />} />
 
           {/* ✅ Fixed Protected Route */}
-          <Route
-            path='/dashboard/*'
-            element={<ProtectedRoute element={<DashboardLayout />} />}
-          />
+          <Route path='/dashboard/*' element={<ProtectedRoute />} />
         </Routes>
       </BrowserRouter>
     </div>
@@ -47,9 +47,9 @@ const App = () => {
 };
 
 // ✅ Fix ProtectedRoute to ensure proper authentication check
-const ProtectedRoute = ({ element }) => {
+const ProtectedRoute = () => {
   const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-  return isLoggedIn ? element : <Navigate to='/login' />;
+  return isLoggedIn ? <DashboardLayout /> : <Navigate to='/login' />;
 };
 
 // ✅ Fix `DashboardLayout` to correctly render pages using `useRoutes`
@@ -76,6 +76,7 @@ const DashboardLayout = () => {
             <Sidebar />
           </div>
         )}
+
         <div
           className={
             activeMenu
