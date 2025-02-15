@@ -114,12 +114,14 @@ function Verification() {
                       onChange={handleNinChange}
                     />
                     <InputField
-                      label='Date of Birth (required)'
-                      type='date'
-                      id='dateOfBirth'
-                      value={dob}
-                      onChange={handleDobChange}
-                    />
+  label='Date of Birth (required)'
+  type='date'
+  id='dateOfBirth'
+  placeholder='Select your birth date'
+  value={dob}
+  onChange={setDob}
+/>
+
                     <div className='flex justify-end'>
                       <Button
                         text={loading ? 'Processing...' : 'Proceed'}

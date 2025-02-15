@@ -71,7 +71,7 @@ function Login() {
                   Please enter your details
                 </p>
 
-                <form className='mt-6 space-y-4' onSubmit={handleSubmit}>
+                <form className='mt-6 w-full space-y-4' onSubmit={handleSubmit}>
                   <InputField
                     type='text'
                     placeholder='Phone Number'
@@ -93,13 +93,16 @@ function Login() {
                       Forgot Password?
                     </button>
                   </div>
-                  <div className='flex justify-center w-full'>
-                    <Button
-                      type='submit'
-                      text={loading ? 'Processing...' : 'Sign In'}
-                      disabled={loading}
-                    />
-                  </div>
+                  <div className='w-full flex'>
+                  <Button
+  type='submit'
+  text={loading ? 'Processing...' : 'Sign In'}
+  disabled={loading}
+  fullWidth
+/>
+
+</div>
+
                 </form>
 
                 <p className='mt-4 text-center text-sm'>
