@@ -6,7 +6,8 @@ import {
   Navigate,
   useRoutes,
 } from 'react-router-dom';
-import { useStateContext } from './contexts/ContextProvider';
+import { useStateContext } from './contexts/ContextProvider'; // Correct path
+import { FormContextProvider } from './contexts/FormContextProvider'; // Correct path
 import NinVerification from './pages/auth/NinVerification';
 import Registration from './pages/auth/Registration';
 import Otp from './pages/auth/Otp';
@@ -15,6 +16,14 @@ import Login from './pages/auth/Login';
 import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
 import { Dashboard, Centers, Applicants, Reports } from './pages';
 import './App.css';
+import PersonalDetails from './pages/auth/PersonalDetails';
+import Bvn from './pages/auth/Bvn';
+import SkillSelect from './pages/auth/SkillSelect';
+import Preview from './pages/auth/Preview';
+import SelectCenter from './pages/auth/SelectCenter';
+import FinalReview from './pages/auth/FinalReview';
+import Welcome from './pages/auth/Welcome';
+import GetStarted from './pages/auth/GetStated';
 
 const App = () => {
   const { setCurrentColor, setCurrentMode, currentMode } = useStateContext();
@@ -37,6 +46,65 @@ const App = () => {
           <Route path='/otp' element={<Otp />} />
           <Route path='/createpassword' element={<Createpassword />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/get-started' element={<GetStarted />} />
+
+          {/* Wrap the specified routes with FormContextProvider */}
+          <Route
+            path='/personal-details'
+            element={
+              <FormContextProvider>
+                <PersonalDetails />
+              </FormContextProvider>
+            }
+          />
+          <Route
+            path='/bvn'
+            element={
+              <FormContextProvider>
+                <Bvn />
+              </FormContextProvider>
+            }
+          />
+          <Route
+            path='/skills-selection'
+            element={
+              <FormContextProvider>
+                <SkillSelect />
+              </FormContextProvider>
+            }
+          />
+          <Route
+            path='/preview'
+            element={
+              <FormContextProvider>
+                <Preview />
+              </FormContextProvider>
+            }
+          />
+          <Route
+            path='/select-center'
+            element={
+              <FormContextProvider>
+                <SelectCenter />
+              </FormContextProvider>
+            }
+          />
+          <Route
+            path='/Final-review'
+            element={
+              <FormContextProvider>
+                <FinalReview />
+              </FormContextProvider>
+            }
+          />
+          <Route
+            path='/welcome'
+            element={
+              <FormContextProvider>
+                <Welcome />
+              </FormContextProvider>
+            }
+          />
 
           {/* ✅ Fixed Protected Route */}
           <Route path='/dashboard/*' element={<ProtectedRoute />} />

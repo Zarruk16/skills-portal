@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Footer = () => (
-  <footer className='mt-24 text-center'>
-    <p className='dark:text-gray-200 text-gray-700 m-20'>
-      © {new Date().getFullYear()} All rights reserved by{' '}
-      <span className='font-semibold'>YourCompany</span>
+const Footer = ({ className }) => (
+  <footer className={`mt-24 text-center px-4 sm:px-4 lg:px-16 ${className}`}>
+    <p className='dark:text-gray-200 text-gray-700 my-10 text-sm sm:text-sm'>
+      All rights reserved - Skills Portal © {new Date().getFullYear()} || build by 
+      <span className='text-sm font-semibold'> Blumentech</span>
     </p>
   </footer>
 );

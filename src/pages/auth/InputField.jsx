@@ -4,15 +4,15 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 function InputField({ label, type, id, placeholder, value, onChange }) {
   return (
-    <div className='flex flex-col mb-4 w-full text-sm'>
-      <label htmlFor={id} className='text-zinc-900 mb-1'>
+    <div className='flex flex-col mb-1 md:mb-4 w-full text-sm'>
+      <label htmlFor={id} className='text-zinc-900 mb-1 text-sm md:text-base'>
         {label}
       </label>
       <div className='flex flex-col w-full whitespace-nowrap text-zinc-400'>
         {type === 'date' ? (
           <DatePicker
-            selected={value}
-            onChange={onChange}
+            selected={value} // Ensure `value` is a Date object or null
+            onChange={onChange} // Pass the `onChange` handler directly
             dateFormat='yyyy-MM-dd'
             maxDate={new Date(new Date().setFullYear(new Date().getFullYear() - 18))} // 18+ restriction
             showYearDropdown

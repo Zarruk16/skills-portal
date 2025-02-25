@@ -35,7 +35,7 @@ function Login() {
       if (phoneNumber === storedPhoneNumber && password === storedPassword) {
         localStorage.setItem('isLoggedIn', 'true'); // ✅ Store login state
         toast.success('Login successful!');
-        navigate('/dashboard'); // ✅ Redirect to dashboard immediately
+        navigate('/get-started'); // ✅ Redirect to dashboard immediately
       } else {
         toast.error('Invalid phone number or password.');
         setLoading(false); // ✅ Re-enable the button if login fails
@@ -45,26 +45,30 @@ function Login() {
 
   return (
     <div className='relative min-h-screen bg-white flex flex-col lg:flex-row'>
-      <div
-        className='absolute bottom-0 right-0 w-[45%] h-[85%] bg-no-repeat bg-cover z-10 max-md:w-[200px] max-md:h-[200px]'
-        style={{
-          backgroundImage: `url(${login})`,
-          backgroundSize: 'contain',
-          backgroundPosition: 'bottom right',
-        }}
-      />
+      {/* Background Image - Hidden on small screens */}
+      <div className='hidden md:block'>
+        <div
+          className='absolute bottom-0 right-0 w-[45%] h-[85%] bg-no-repeat bg-cover z-10 max-md:w-[200px] max-md:h-[200px]'
+          style={{
+            backgroundImage: `url(${login})`,
+            backgroundSize: 'contain',
+            backgroundPosition: 'bottom right',
+          }}
+        />
+      </div>
 
       <div className='relative flex flex-col lg:flex-row w-full'>
         <div className='flex flex-col items-center mt-10 w-full lg:w-[54%] min-h-screen bg-white'>
-          <div className='w-full max-w-[64%] max-md:w-[90%] max-md:h-screen'>
+          {/* Main container - No padding or margin on small screens */}
+          <div className='w-full max-w-[64%] max-md:w-full max-md:px-0 max-md:mx-0 max-md:h-screen'>
             <div className='w-full'>
-              <div className='mx-0 mt-20'>
+              <div className='mx-0 mt-20 max-md:mx-0 max-md:mt-10'>
                 <img
                   src={icon1}
                   className='object-contain mb-8 w-16 aspect-square'
                   alt='Login icon'
                 />
-                <h1 className='text-4xl font-medium text-slate-900'>
+                <h1 className='text-3xl md:text-4xl font-medium text-slate-900'>
                   Welcome Back
                 </h1>
                 <p className='mt-4 text-base text-zinc-600'>
@@ -84,25 +88,23 @@ function Login() {
                     value={password}
                     onChange={handlePasswordChange}
                   />
-                  <div className='flex justify-between items-center text-sm'>
+                  <div className='flex justify-between items-center text-[12px] md:text-sm'>
                     <label className='flex items-center'>
-                      <input type='checkbox' className='mr-2' />
+                      <input type='checkbox' className='mr-2 text-[9px]' />
                       Remember Me
                     </label>
                     <button type='button' className='text-blue-500'>
                       Forgot Password?
                     </button>
                   </div>
-                  <div className='w-full flex'>
-                  <Button
-  type='submit'
-  text={loading ? 'Processing...' : 'Sign In'}
-  disabled={loading}
-  fullWidth
-/>
-
-</div>
-
+                  <div className='w-full flex max-md:mt-40'>
+                    <Button
+                      type='submit'
+                      text={loading ? 'Processing...' : 'Sign In'}
+                      disabled={loading}
+                      className='w-full' // Full width on small screens
+                    />
+                  </div>
                 </form>
 
                 <p className='mt-4 text-center text-sm'>
@@ -112,12 +114,14 @@ function Login() {
                   </a>
                 </p>
               </div>
-              <Footer />
+              {/* Footer - Hidden on small screens */}
+              <Footer className='hidden md:block' />
             </div>
           </div>
         </div>
 
-        <div className='relative flex flex-col w-full lg:w-[46%] mt-10 lg:mt-0'>
+        {/* Right Panel - Hidden on small screens */}
+        <div className='relative flex flex-col w-full lg:w-[46%] mt-10 lg:mt-0 hidden md:block'>
           <div
             className='flex flex-col items-center lg:items-end pt-14 px-4 lg:px-0 mx-auto w-full'
             style={{

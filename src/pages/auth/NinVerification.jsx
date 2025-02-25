@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FaRegCircleCheck } from 'react-icons/fa6';
-
 import InputField from './InputField';
 import Button from './Button';
 import Footer from './Footer';
@@ -26,8 +25,13 @@ function Verification() {
     setNin(e.target.value.trim());
   };
 
-  const handleDobChange = (e) => {
-    setDob(e.target.value);
+  const handleDobChange = (date) => {
+    if (date instanceof Date) {
+      const formattedDate = date.toISOString().split('T')[0]; // Convert to YYYY-MM-DD format
+      setDob(formattedDate);
+    } else {
+      setDob(date);
+    }
   };
 
   const handleSubmit = (e) => {
@@ -62,28 +66,32 @@ function Verification() {
 
   return (
     <div className='relative min-h-screen bg-white flex flex-col lg:flex-row'>
-      <div
-        className='absolute bottom-0 right-0 w-[45%] h-[85%] bg-no-repeat bg-cover z-10 max-md:w-[200px] max-md:h-[200px]'
-        style={{
-          backgroundImage: `url(${hero})`,
-          backgroundSize: 'contain',
-          backgroundPosition: 'bottom right',
-        }}
-      />
+      {/* Background Image - Hidden on small screens */}
+      <div className='hidden md:block'>
+        <div
+          className='absolute bottom-0 right-0 w-[45%] h-[85%] bg-no-repeat bg-cover z-10 max-md:w-[200px] max-md:h-[200px]'
+          style={{
+            backgroundImage: `url(${hero})`,
+            backgroundSize: 'contain',
+            backgroundPosition: 'bottom right',
+          }}
+        />
+      </div>
 
       <div className='relative flex flex-col lg:flex-row w-full'>
         <div className='flex flex-col items-center mt-10 w-full lg:w-[54%] min-h-screen bg-white'>
-          <div className='w-full max-w-[64%] max-md:w-[90%] max-md:h-screen'>
+          {/* Main container - No padding or margin on small screens */}
+          <div className='w-full max-w-[64%] max-md:w-full max-md:px-0 max-md:mx-0 max-md:h-screen'>
             <div className='my-auto w-full max-md:mt-10'>
-              <div className='flex gap-2 justify-between items-center mx-0 text-sm text-zinc-600 max-md:mx-2.5'>
+              <div className='flex gap-2 justify-between items-center mx-0 text-sm text-zinc-600 max-md:mx-0'>
                 <span>Stage 1: Verification</span>
                 <span className='text-right'>1/4</span>
               </div>
-              <div className='flex gap-2 w-full mx-4 mt-6 max-md:mx-2.5'>
-                <div className='w-24 h-1.5 bg-blue-600 rounded-[31px]' />
-                <div className='h-1.5 bg-neutral-300 rounded-[31px] w-[95px]' />
-                <div className='w-24 h-1.5 bg-neutral-300 rounded-[31px]' />
-                <div className='h-1.5 bg-neutral-300 rounded-[31px] w-[95px]' />
+              <div className='flex gap-2 w-full mt-6 max-md:mx-0'>
+                <div className='w-32 h-1.5 bg-blue-600 rounded-[31px]' />
+                <div className='h-1.5 bg-neutral-300 rounded-[31px] w-32' />
+                <div className='w-32 h-1.5 bg-neutral-300 rounded-[31px]' />
+                <div className='h-1.5 bg-neutral-300 rounded-[31px] w-32' />
               </div>
 
               <div className='mx-0 mt-20 items-start max-md:mx-0 max-md:mt-10'>
@@ -114,31 +122,33 @@ function Verification() {
                       onChange={handleNinChange}
                     />
                     <InputField
-  label='Date of Birth (required)'
-  type='date'
-  id='dateOfBirth'
-  placeholder='Select your birth date'
-  value={dob}
-  onChange={setDob}
-/>
+                      label='Date of Birth (required)'
+                      type='date'
+                      id='dateOfBirth'
+                      placeholder='Select your birth date'
+                      value={dob ? new Date(dob) : null} // Convert string to Date object
+                      onChange={handleDobChange}
+                    />
 
-                    <div className='flex justify-end'>
+                    <div className='flex mt-40 md:mt-8 justify-end'>
                       <Button
                         text={loading ? 'Processing...' : 'Proceed'}
                         onClick={handleSubmit}
                         disabled={loading}
+                        className='w-full md:w-auto' // Full width on small screens
                       />
                     </div>
                   </form>
                 </div>
               </div>
-              <Footer />
+              {/* Footer - Hidden on small screens */}
+              <Footer className='hidden md:block' />
             </div>
           </div>
         </div>
 
-        {/* ✅ Right Panel (Fully Restored) */}
-        <div className='relative flex flex-col w-full lg:w-[46%] mt-10 lg:mt-0'>
+        {/* Right Panel - Hidden on small screens */}
+        <div className='relative flex flex-col w-full lg:w-[46%] mt-10 lg:mt-0 hidden md:block'>
           <div
             className='flex flex-col items-center lg:items-end pt-14 px-4 lg:px-0 mx-auto w-full'
             style={{
@@ -175,7 +185,7 @@ function Verification() {
 
       <ToastContainer aria-live='polite' />
 
-      {/* ✅ Modal - Opens on successful submission */}
+      {/* Modal */}
       {isModalOpen && (
         <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 px-4'>
           <div className='bg-white rounded-lg shadow-lg p-4 md:p-6 w-full max-w-[90%] sm:max-w-[400px] flex flex-col'>

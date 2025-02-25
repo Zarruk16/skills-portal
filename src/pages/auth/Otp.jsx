@@ -55,31 +55,35 @@ function Otp() {
 
   return (
     <div className='relative min-h-screen bg-white flex flex-col lg:flex-row'>
-      <div
-        className='absolute bottom-0 right-0 w-[45%] h-[85%] bg-no-repeat bg-cover z-10 max-md:w-[200px] max-md:h-[200px]'
-        style={{
-          backgroundImage: `url(${hero})`,
-          backgroundSize: 'contain',
-          backgroundPosition: 'bottom right',
-        }}
-      />
+      {/* Background Image - Hidden on small screens */}
+      <div className='hidden md:block'>
+        <div
+          className='absolute bottom-0 right-0 w-[45%] h-[85%] bg-no-repeat bg-cover z-10 max-md:w-[200px] max-md:h-[200px]'
+          style={{
+            backgroundImage: `url(${hero})`,
+            backgroundSize: 'contain',
+            backgroundPosition: 'bottom right',
+          }}
+        />
+      </div>
 
       <div className='relative flex flex-col lg:flex-row w-full'>
         <div className='flex flex-col items-center mt-10 w-full lg:w-[54%] min-h-screen bg-white'>
-          <div className='w-full max-w-[64%] max-md:w-[90%] max-md:h-screen'>
+          {/* Main container - No padding or margin on small screens */}
+          <div className='w-full max-w-[64%] max-md:w-full max-md:px-0 max-md:mx-0 max-md:h-screen'>
             <div className='w-full'>
-              <div className='flex gap-4 justify-between items-center mx-0 text-sm text-zinc-600'>
+              <div className='flex gap-4 justify-between items-center mx-0 text-sm text-zinc-600 max-md:mx-0'>
                 <span>Stage 3: OTP</span>
                 <span className='text-right'>3/4</span>
               </div>
-              <div className='flex gap-2 w-full mx-4 mt-6'>
-                <div className='w-24 h-1.5 bg-blue-600 rounded-[31px]' />
-                <div className='w-24 h-1.5 bg-blue-600 rounded-[31px]' />
-                <div className='w-24 h-1.5 bg-blue-600 rounded-[31px]' />
-                <div className='h-1.5 bg-neutral-300 rounded-[31px] w-[95px]' />
+              <div className='flex gap-2 w-full mt-6 max-md:mx-0'>
+                <div className='w-32 h-1.5 bg-blue-600 rounded-[31px]' />
+                <div className='w-32 h-1.5 bg-blue-600 rounded-[31px]' />
+                <div className='w-32 h-1.5 bg-blue-600 rounded-[31px]' />
+                <div className='h-1.5 bg-neutral-300 rounded-[31px] w-32' />
               </div>
 
-              <div className='mx-0 mt-20'>
+              <div className='mx-0 mt-20 max-md:mx-0 max-md:mt-10'>
                 <img
                   src={icon1}
                   className='object-contain w-16 aspect-square'
@@ -108,7 +112,7 @@ function Otp() {
                       />
                     ))}
                   </div>
-                  <div className='flex items-center justify-between mt-6'>
+                  <div className='flex items-center justify-between mt-6 max-md:flex-col max-md:gap-4'>
                     <p className='text-sm text-left text-zinc-600'>
                       Didn’t receive a code?{' '}
                       <span className='text-blue-600 cursor-pointer'>
@@ -117,19 +121,21 @@ function Otp() {
                     </p>
                     <button
                       type='submit'
-                      className='bg-blue-600 text-white px-4 py-3 rounded-lg text-sm font-medium hover:bg-blue-700 transition-all duration-300'
+                      className='bg-blue-600 text-white px-4 py-3 rounded-lg text-sm font-medium hover:bg-blue-700 transition-all duration-300 w-full md:w-auto max-md:mt-40'
                     >
                       Proceed
                     </button>
                   </div>
                 </form>
               </div>
-              <Footer />
+              {/* Footer - Hidden on small screens */}
+              <Footer className='hidden md:block' />
             </div>
           </div>
         </div>
 
-        <div className='relative flex flex-col w-full lg:w-[46%] mt-10 lg:mt-0'>
+        {/* Right Panel - Hidden on small screens */}
+        <div className='relative flex flex-col w-full lg:w-[46%] mt-10 lg:mt-0 hidden md:block'>
           <div
             className='flex flex-col items-center lg:items-end pt-14 px-4 lg:px-0 mx-auto w-full'
             style={{
